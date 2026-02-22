@@ -1,0 +1,536 @@
+/* 全体の基本設定（ピンクの背景） */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #ffffff; /* 背景を白に変更（ピンクを削除） */
+}
+
+/* 中央の白いキャンバス */
+.container {
+    max-width: 1000px; /* 全体の最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #ffffff; /* 白背景 */
+    min-height: 100vh; /* 最低でも画面の高さ分は白にする */
+    box-sizing: border-box;
+}
+
+/* コンテナをモダンに見せる */
+.container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+    padding-bottom: 40px;
+}
+
+/* 上部の黒いバー */
+.top-black-bar {
+    background-color: #000000;
+    height: 30px;
+    width: 100%;
+}
+
+/* タイトルエリア */
+.header {
+    background-color: #d9d9d9; /* 薄いグレー */
+    padding: 18px 0;
+    text-align: center;
+    background: linear-gradient(90deg,#ffffff 0%, #fbfbfb 100%);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: normal;
+    color: #000;
+    letter-spacing: 2px;
+}
+
+/* 丸いアイコンの行 */
+.icon-row {
+    display: flex;
+    justify-content: space-between; /* 均等に配置 */
+    padding: 50px 40px;
+}
+
+.icon-row {
+    display: flex;
+    justify-content: space-between; /* 均等に配置 */
+    padding: 50px 40px;
+    gap: 18px;
+}
+
+.circle {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%; /* 正円にする */
+    background-color: #eef2f5; /* 明るいグレー */
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(16,24,40,0.03);
+    box-shadow: 0 8px 18px rgba(16,24,40,0.04);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.circle:focus { outline: none; box-shadow: 0 10px 24px rgba(16,24,40,0.08); transform: translateY(-3px); }
+.circle:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(16,24,40,0.08); }
+.circle svg { display: block; }
+.circle-label {
+    display: block;
+    font-size: 13px;
+    color: #475569;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+/* smaller on mobile */
+@media (max-width: 600px) {
+    .icon-row { gap: 10px; padding: 24px 16px; }
+    .circle { width: 64px; height: 64px; }
+    .circle svg { width: 22px; height: 22px; }
+    .circle-label { font-size: 11px; }
+}
+
+/* --- About Me セクション --- */
+.about-me {
+    padding: 0 40px 50px 40px; /* 全体の余白 */
+}
+
+/* サブタイトルのデザイン */
+.section-title {
+    text-align: center; /* タイトルを中央寄せ */
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 30px 0;
+    letter-spacing: 1px;
+}
+
+/* メインコンテンツ（画像とコメントの配置） */
+.content {
+    display: flex;
+    gap: 40px; /* 画像とコメントの間の余白 */
+    /* ※ここにあったpaddingは .about-me に移動しました */
+}
+
+/* 画像のプレースホルダー */
+.image-box {
+    width: 300px;
+    height: 350px;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    flex-shrink: 0; /* 画像サイズが縮まないようにする */
+}
+
+/* コメントエリア */
+.text-box {
+    flex: 1; /* 残りの幅をすべて埋める */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+}
+
+/* --- スマホ向けのレスポンシブ対応 --- */
+@media (max-width: 600px) {
+    .icon-row {
+        padding: 30px 20px;
+    }
+    
+    .circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* スマホ用のAbout Me余白 */
+    .about-me {
+        padding: 0 20px 40px 20px;
+    }
+
+    .content {
+        flex-direction: column; /* 縦並びにする */
+        align-items: center;
+        /* ※ここにあったpaddingは削除しました */
+    }
+
+    .image-box {
+        width: 100%; /* スマホでは横幅いっぱいにする */
+        max-width: 300px;
+    }
+}
+
+/* --- 能力ゲージ --- */
+.skills {
+    padding: 28px 40px 60px 40px;
+    margin: 18px 24px 0 24px;
+    background: linear-gradient(180deg, #ffffff, #fffafc);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+    margin-bottom: 8px;
+}
+
+/* ゲージ用の新しい設定（ここから） */
+.skill-label {
+    width: 110px;
+    color: #444;
+    font-size: 15px;
+}
+
+.gauge-track {
+    flex: 1;
+    height: 12px; /* ゲージの太さ */
+    background: #efe9e9;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b81, #ff8fa3);
+    border-radius: 999px;
+}
+/* ゲージ用の新しい設定（ここまで） */
+
+.skill .skill-value {
+    min-width: 46px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg,#ff6b81,#ff8fa3);
+    box-shadow: 0 6px 14px rgba(255,107,129,0.12);
+}
+
+/* スマホ向けのレスポンシブ対応 */
+@media (max-width: 600px) {
+    .skills { padding: 20px; }
+    .skill-label { width: 64px; font-size: 14px; }
+}
+/* --- Works セクション --- */
+.works {
+    /* Skillsセクションと同じ余白感と背景デザインを適用 */
+    padding: 28px 40px 60px 40px;
+    margin: 18px 24px 40px 24px; /* 下にも少し余白を追加 */
+    background: linear-gradient(180deg, #ffffff, #fffafc);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+}
+
+/* カードを並べるグリッドコンテナ */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    gap: 24px; /* カード間の余白 */
+}
+
+/* 作品カード単体 */
+.work-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden; /* 角丸からはみ出た画像を隠す */
+    border: 1px solid rgba(16,24,40,0.05);
+    box-shadow: 0 4px 12px rgba(16,24,40,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* カードのホバーエフェクト（浮き上がる） */
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(16,24,40,0.08);
+}
+
+/* 作品サムネイル画像エリア */
+.work-image {
+    width: 100%;
+    height: 180px;
+    background: #eef2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ってエリアを埋める */
+    transition: transform 0.3s ease;
+}
+.work-card:hover .work-image img {
+    transform: scale(1.05); /* ホバー時に画像も少し拡大 */
+}
+
+/* カード内のテキストコンテンツ */
+.work-content {
+    padding: 20px;
+}
+
+/* 作品タイトル */
+.work-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* 作品説明文 */
+.work-description {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ボタン */
+.work-button {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(90deg, #ff6b81, #ff8fa3); /* ピンクのグラデーション */
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(255,107,129,0.2);
+    transition: opacity 0.2s;
+}
+
+.work-button:hover {
+    opacity: 0.9;
+}
+
+
+/* --- スマホ向けのレスポンシブ対応の追加 --- */
+/* 既存の @media (max-width: 600px) のブロック内に以下を追記しても良いですが、
+   わかりやすく一番下に追加します。既存の設定を上書きします。 */
+@media (max-width: 600px) {
+    .works {
+        padding: 20px; /* スマホでの余白調整 */
+        margin: 18px 0 40px 0; /* スマホでは左右の余白をなくす */
+        border-radius: 0; /* スマホでは角丸をなくして画面幅いっぱいにする */
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr; /* スマホでは1列にする */
+        gap: 16px;
+    }
+}
+/* --- Life セクション --- */
+.life {
+    padding: 28px 40px 60px 40px;
+    margin: 18px 24px 40px 24px;
+    background: linear-gradient(180deg, #ffffff, #fffafc);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+}
+
+/* Life内のレイアウト（PCでは左右分割） */
+.life-container {
+    display: flex;
+    gap: 50px;
+}
+
+/* 普段の生活テキストエリア */
+.life-text {
+    flex: 1; /* 左側を広く取る */
+}
+
+.life-text p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* 小見出しのデザイン */
+.life-subtitle {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    /* 左側にピンクの線を入れてアクセントにする */
+    padding-left: 10px;
+    border-left: 4px solid #ff6b81;
+}
+
+/* タグエリア（右側） */
+.life-tags-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 趣味と食べ物の間の余白 */
+}
+
+/* タグを並べるコンテナ */
+.tags {
+    display: flex;
+    flex-wrap: wrap; /* 端まで行ったら折り返す */
+    gap: 10px;
+}
+
+/* 趣味のタグ（グレー系） */
+.tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #eef2f5;
+    color: #444;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: transform 0.2s ease;
+}
+
+.tag:hover {
+    transform: translateY(-2px); /* 少し浮き上がる */
+}
+
+/* 好きな食べ物のタグ（ピンク系） */
+.food-tag {
+    background: #fff0f2;
+    color: #ff6b81;
+    border: 1px solid rgba(255,107,129,0.2);
+}
+
+/* --- スマホ向けのレスポンシブ対応 --- */
+@media (max-width: 600px) {
+    .life {
+        padding: 20px;
+        margin: 18px 0 40px 0;
+        border-radius: 0;
+    }
+
+    .life-container {
+        flex-direction: column; /* スマホでは縦並びにする */
+        gap: 40px;
+    }
+}
+/* --- Contact セクション --- */
+.contact {
+    padding: 28px 40px 60px 40px;
+    margin: 18px 24px 60px 24px; /* 一番下のセクションなので下余白を多めに */
+    background: linear-gradient(180deg, #ffffff, #fffafc);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+    text-align: center; /* 全体を中央寄せ */
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.contact-text {
+    color: #555;
+    line-height: 1.8;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* メールアドレスのリンク（ボタン風） */
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff6b81; /* テーマカラーのピンク */
+    background: #fff0f2; /* 薄いピンクの背景 */
+    border: 2px solid rgba(255,107,129,0.2);
+    border-radius: 999px;
+    text-decoration: none; /* リンクの下線を消す */
+    transition: all 0.2s ease;
+}
+
+/* マウスオーバー時のエフェクト */
+.contact-email:hover {
+    background: #ff6b81;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(255,107,129,0.2);
+}
+
+/* --- スマホ向けのレスポンシブ対応 --- */
+@media (max-width: 600px) {
+    .contact {
+        padding: 30px 20px;
+        margin: 18px 0 60px 0;
+        border-radius: 0;
+    }
+    
+    .contact-email {
+        font-size: 16px;
+        padding: 12px 20px;
+        width: 100%; /* スマホではボタンの幅を広げる */
+        max-width: 320px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+}
+/* --- トップへ戻るボタン --- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(90deg, #ff6b81, #ff8fa3);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255,107,129,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    /* 初期状態は透明にして、クリックできないようにする */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000; /* 他の要素より上に表示 */
+}
+
+/* JavaScriptでこのクラスが付与されたらフワッと表示 */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* マウスオーバー時のエフェクト */
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255,107,129,0.4);
+}
+
+/* スマホ向けのレスポンシブ対応 */
+@media (max-width: 600px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px; /* スマホでは少し小さく */
+        height: 44px;
+    }
+}

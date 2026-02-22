@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="top-black-bar"></div>
+
+        <header class="header">
+            <h1>kajito room</h1>
+        </header>
+
+        <div class="icon-row">
+            <button class="circle" aria-label="About">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <circle cx="12" cy="8" r="3" stroke="#6b7280" stroke-width="1.6"/>
+                    <path d="M5.5 20c0-3 3.5-5 6.5-5s6.5 2 6.5 5" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span class="circle-label">About</span>
+            </button>
+
+            <button class="circle" aria-label="Skills">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <path d="M8.5 7.5L5 12l3.5 4.5" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5 7.5L19 12l-3.5 4.5" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="circle-label">Skills</span>
+            </button>
+
+            <button class="circle" aria-label="Works">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <rect x="4" y="7" width="16" height="10" rx="2" stroke="#6b7280" stroke-width="1.6"/>
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span class="circle-label">Works</span>
+            </button>
+
+            <button class="circle" aria-label="Life">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <path d="M3 7h18" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M6 7v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span class="circle-label">Life</span>
+            </button>
+
+            <button class="circle" aria-label="Contact">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <rect x="3.5" y="5" width="17" height="14" rx="2" stroke="#6b7280" stroke-width="1.6"/>
+                    <path d="M4.5 7.5l7 5 7-5" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="circle-label">Contact</span>
+            </button>
+        </div>
+
+        <section class="about-me">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="content">
+                <div class="image-box">
+                    イメージ<br>画像
+                </div>
+                <div class="text-box">
+                    コメント
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skill">
+                <span class="skill-label">HTML/CSS</span>
+                <div class="gauge-track">
+                    <div class="gauge-fill" style="width: 75%;"></div>
+                </div>
+                <span class="skill-value">75</span>
+            </div>
+            
+            <div class="skill">
+                <span class="skill-label">C</span>
+                <div class="gauge-track">
+                    <div class="gauge-fill" style="width: 60%;"></div>
+                </div>
+                <span class="skill-value">60</span>
+            </div>
+            
+            <div class="skill">
+                <span class="skill-label">Python</span>
+                <div class="gauge-track">
+                    <div class="gauge-fill" style="width: 80%;"></div>
+                </div>
+                <span class="skill-value">80</span>
+            </div>
+            
+            <div class="skill">
+                <span class="skill-label">JavaScript</span>
+                <div class="gauge-track">
+                    <div class="gauge-fill" style="width: 60%;"></div>
+                </div>
+                <span class="skill-value">60</span>
+            </div>
+            
+            <div class="skill">
+                <span class="skill-label">Figma</span>
+                <div class="gauge-track">
+                    <div class="gauge-fill" style="width: 50%;"></div>
+                </div>
+                <span class="skill-value">50</span>
+            </div>
+            
+        </section>
+
+        <section class="works">
+            <h2 class="section-title">Works</h2>
+            
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="https://placehold.jp/300x200.png?text=Image+1" alt="作品サムネイル1">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">作品タイトル A</h3>
+                        <p class="work-description">ここに作品の簡単な説明文が入ります。使用技術や担当範囲など。</p>
+                        <a href="#" class="work-button">View More</a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="https://placehold.jp/300x200.png?text=Image+2" alt="作品サムネイル2">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">作品タイトル B</h3>
+                        <p class="work-description">サイトのデザインに合わせてシンプルでクリーンなカードデザインにしました。</p>
+                        <a href="#" class="work-button">View More</a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="https://placehold.jp/300x200.png?text=Image+3" alt="作品サムネイル3">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">作品タイトル C</h3>
+                        <p class="work-description">マウスオーバーすると少し浮き上がるアニメーションが付いています。</p>
+                        <a href="#" class="work-button">View More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="life">
+            <h2 class="section-title">Life</h2>
+            
+            <div class="life-container">
+                <div class="life-text">
+                    <h3 class="life-subtitle">My Daily Life</h3>
+                    <p>
+                        普段はプログラミングの学習やデザインの制作をしながら、インプットとアウトプットのバランスを大切に生活しています。<br>
+                        休日はお気に入りのゲームをしたり、新しい技術を試したりしています。<br>
+                        最近は自分磨きにはまっており、筋トレやファッションなどに興味を持っています。
+                    </p>
+                </div>
+                
+                <div class="life-tags-area">
+                    <div class="life-category">
+                        <h3 class="life-subtitle">Hobbies</h3>
+                        <div class="tags">
+                            <span class="tag">☕️ カフェ巡り</span>
+                            <span class="tag">📚 読書</span>
+                            <span class="tag">🎬 映画鑑賞</span>
+                            <span class="tag">📷 写真撮影</span>
+                        </div>
+                    </div>
+                    
+                    <div class="life-category">
+                        <h3 class="life-subtitle">Favorite Foods</h3>
+                        <div class="tags">
+                            <span class="tag food-tag">🍣 お寿司</span>
+                            <span class="tag food-tag">🥩 焼肉</span>
+                            <span class="tag food-tag">🍰 甘いもの</span>
+                            <span class="tag food-tag">🍜 ラーメン</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="contact-container">
+                <p class="contact-text">
+                    お仕事のご相談やお問い合わせは、<br>
+                    以下の専用フォームよりお気軽にご連絡ください。
+                </p>
+                
+                <a href="https://forms.gle/hT3sLfD3Zu23L3dZA" target="_blank" rel="noopener noreferrer" class="contact-email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    お問い合わせフォームへ
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+    <script>
+        (function(){
+            const sliders = document.querySelectorAll('.skill input[type="range"]');
+            sliders.forEach(function(input){
+                const display = input.parentElement.querySelector('.skill-value');
+                const min = Number(input.min) || 0;
+                const max = Number(input.max) || 100;
+                const update = function(){
+                    const val = Number(input.value);
+                    display.textContent = val;
+                    const pct = (val - min) / (max - min) * 100;
+                    input.style.background = `linear-gradient(90deg, #ff6b81 ${pct}%, #efe9e9 ${pct}%)`;
+                };
+                input.addEventListener('input', update);
+                input.addEventListener('pointerdown', function(){ input.classList.add('active'); });
+                input.addEventListener('pointerup', function(){ input.classList.remove('active'); });
+                // for touchend/mouseup anywhere
+                document.addEventListener('pointerup', function(){ input.classList.remove('active'); });
+                update();
+            });
+        })();
+    </script>
+</html>
+</div> <button id="back-to-top" class="back-to-top" aria-label="トップへ戻る">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>
+</div> <script src="script.js"></script>
+</body>
+</html>
