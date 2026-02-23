@@ -1,18 +1,35 @@
 /* 全体の基本設定（ピンクの背景） */
+/* 全体の基本設定（動くグラデーション背景） */
+/* 全体の基本設定（元の白背景に戻す） */
 body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #ffffff; /* 背景を白に変更（ピンクを削除） */
+    background-color: #ffffff; 
 }
 
-/* 中央の白いキャンバス */
+/* 中央のキャンバス（こちらを動かす！） */
 .container {
     max-width: 1000px; /* 全体の最大幅 */
     margin: 0 auto; /* 中央寄せ */
-    background-color: #ffffff; /* 白背景 */
-    min-height: 100vh; /* 最低でも画面の高さ分は白にする */
+    min-height: 100vh; /* 最低でも画面の高さ分は確保 */
     box-sizing: border-box;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+    padding-bottom: 40px;
+    
+    /* 🌟 ここに動く背景の設定を移動 */
+    background: linear-gradient(-45deg, #fff1f3, #ffe3e8, #ffffff, #fdfbfb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* 🌟 アニメーションの動き（そのまま残す） */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* コンテナをモダンに見せる */
@@ -550,4 +567,17 @@ body {
         width: 44px; /* スマホでは少し小さく */
         height: 44px;
     }
+}
+/* --- スクロールアニメーション（フワッと表示） --- */
+.fade-in-section {
+    opacity: 0; /* 最初は透明にして見えなくする */
+    transform: translateY(40px); /* 最初は40px下にズラしておく */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 0.8秒かけてフワッと動かす */
+    will-change: opacity, transform; /* ブラウザにアニメーションを予告して動きを滑らかにする */
+}
+
+/* 画面内に入って 'is-visible' という印がついた時の状態 */
+.fade-in-section.is-visible {
+    opacity: 1; /* 完全に表示する */
+    transform: none; /* 元の正しい位置に戻す */
 }

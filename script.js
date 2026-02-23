@@ -57,3 +57,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// --- スクロールに合わせてフワッと表示させる処理 ---
+document.addEventListener('DOMContentLoaded', function() {
+    // アニメーションさせたい要素をすべて取得
+    const fadeElements = document.querySelectorAll('.fade-in-section');
+
+    // 画面内に入ったかどうかを監視する仕組み（Intersection Observer）
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            // 要素が画面内に入ったら
+            if (entry.isIntersecting) {
+                // 'is-visible' クラスを追加してアニメーションを実行
+                entry.target.classList.add('is-visible');
+                
+                // 🌟一度表示されたら、その後は表示したままにする（監視を解除）
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        // 画面の下から 15% ほど見えたタイミングで発火させる
+        threshold: 0.15
+    });
+
+    // 取得した要素を一つずつ監視対象に設定
+    fadeElements.forEach(function(el) {
+        observer.observe(el);
+    });
+});
