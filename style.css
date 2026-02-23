@@ -89,10 +89,27 @@ body {
 
 /* smaller on mobile */
 @media (max-width: 600px) {
-    .icon-row { gap: 10px; padding: 24px 16px; }
-    .circle { width: 64px; height: 64px; }
-    .circle svg { width: 22px; height: 22px; }
-    .circle-label { font-size: 11px; }
+    .icon-row { 
+        gap: 6px; /* 隙間を調整して5つ収める */
+        padding: 24px 10px; 
+        align-items: center; /* 🌟ボタンの縦の位置を強制的に一直線に揃える */
+    }
+    .circle { 
+        width: 58px; /* 🌟画面からはみ出さないサイズに微調整 */
+        height: 58px; 
+    }
+    .circle svg { 
+        width: 22px; 
+        height: 22px; 
+    }
+    .circle-label { 
+        font-size: 10px; /* 文字が折り返してズレるのを防ぐ */
+    }
+    /* 🌟スマホでタップした後にボタンが浮いたままになる現象を防ぐ */
+    .circle:focus { 
+        transform: none; 
+        box-shadow: 0 8px 18px rgba(16,24,40,0.04);
+    }
 }
 
 /* --- About Me セクション --- */
