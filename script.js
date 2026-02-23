@@ -84,3 +84,26 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+// --- スクロールに合わせてフワッと表示させる処理（何度でも繰り返し） ---
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in-section');
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                // 🌟 画面内に入ったら 'is-visible' をつけて表示する
+                entry.target.classList.add('is-visible');
+            } else {
+                // 🌟 画面から完全に出たら 'is-visible' を外して元の透明な状態に戻す
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, {
+        // 画面の下から 15% ほど見えたタイミングで発火させる
+        threshold: 0.15
+    });
+
+    fadeElements.forEach(function(el) {
+        observer.observe(el);
+    });
+});
