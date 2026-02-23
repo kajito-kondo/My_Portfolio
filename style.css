@@ -370,18 +370,54 @@ body {
     }
 }
 /* --- Life セクション --- */
+/* --- Life セクション --- */
 .life {
     padding: 28px 40px 60px 40px;
     margin: 18px 24px 40px 24px;
-    background: linear-gradient(180deg, #ffffff, #fffafc);
+    /* 元のグラデーション背景を削除し、アニメーションを設定 */
+    /* background: linear-gradient(180deg, #ffffff, #fffafc); */
+    background-color: #333; /* 画像読み込み前の背景色 */
+    background-size: cover;
+    background-position: center;
+    /* 15秒かけてアニメーションを無限に繰り返す */
+    animation: lifeBgSlide 15s ease-in-out infinite;
+    
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+    
+    /* 背景が暗くなるので文字色を白にする */
+    color: #ffffff;
+    /* 文字を読みやすくするための影 */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden; /* 角丸からはみ出た背景を隠す */
+    position: relative; /* 子要素の基準にする */
+}
+
+/* 🌟背景画像を切り替えるアニメーションの定義 */
+@keyframes lifeBgSlide {
+    0% {
+        background-image: url('カフェでPCを使った仕事をしている画像_人間は入れないでね.jpg'); /* 1枚目 */
+    }
+    33% {
+        background-image: url('最高の一杯のラーメン.jpg'); /* 2枚目 */
+    }
+    66% {
+        background-image: url('旅行に行きたくなるような写真_人間はうつさないでね (1).jpg'); /* 3枚目 */
+    }
+    100% {
+        background-image: url('カフェでPCを使った仕事をしている画像_人間は入れないでね.jpg'); /* 1枚目に戻る */
+    }
 }
 
 /* Life内のレイアウト（PCでは左右分割） */
 .life-container {
     display: flex;
     gap: 50px;
+    /* 背景が暗いので、コンテンツが少し浮き出るように調整 */
+    background: rgba(0, 0, 0, 0.3); /* 半透明の黒いフィルター */
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(2px); /* 少しぼかしを入れる */
 }
 
 /* 普段の生活テキストエリア */
@@ -390,7 +426,9 @@ body {
 }
 
 .life-text p {
-    color: #555;
+    /* 元の文字色指定を削除し、親要素(.life)の色を継承 */
+    /* color: #555; */
+    color: inherit;
     line-height: 1.8;
     font-size: 15px;
     margin: 0;
@@ -401,10 +439,12 @@ body {
     margin: 0 0 16px 0;
     font-size: 18px;
     font-weight: 700;
-    color: #333;
-    /* 左側にピンクの線を入れてアクセントにする */
+    /* 元の文字色指定を削除 */
+    /* color: #333; */
+    color: inherit;
+    /* 左側の線を少し明るい色に変更して目立たせる */
     padding-left: 10px;
-    border-left: 4px solid #ff6b81;
+    border-left: 4px solid #ff8fa3; 
 }
 
 /* タグエリア（右側） */
@@ -422,16 +462,18 @@ body {
     gap: 10px;
 }
 
-/* 趣味のタグ（グレー系） */
+/* 趣味のタグ（白背景に変更） */
 .tag {
     display: inline-block;
     padding: 8px 16px;
-    background: #eef2f5;
-    color: #444;
+    background: rgba(255, 255, 255, 0.9); /* 少し透けた白 */
+    color: #444; /* 文字は濃いグレー */
     font-size: 14px;
     font-weight: 600;
     border-radius: 999px;
     transition: transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-shadow: none; /* タグの文字には影をつけない */
 }
 
 .tag:hover {
@@ -440,9 +482,9 @@ body {
 
 /* 好きな食べ物のタグ（ピンク系） */
 .food-tag {
-    background: #fff0f2;
+    background: rgba(255, 240, 242, 0.95); /* 少し透けた薄ピンク */
     color: #ff6b81;
-    border: 1px solid rgba(255,107,129,0.2);
+    border: 1px solid rgba(255,107,129,0.3);
 }
 
 /* --- スマホ向けのレスポンシブ対応 --- */
@@ -455,7 +497,8 @@ body {
 
     .life-container {
         flex-direction: column; /* スマホでは縦並びにする */
-        gap: 40px;
+        gap: 30px;
+        padding: 20px; /* スマホでの内側余白 */
     }
 }
 /* --- Contact セクション --- */
