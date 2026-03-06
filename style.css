@@ -8,20 +8,24 @@ body {
     background-color: #ffffff; 
 }
 
-/* 中央のキャンバス（こちらを動かす！） */
+/* 中央のキャンバス（2つあった設定を1つに統合） */
 .container {
-    max-width: 1000px; /* 全体の最大幅 */
-    margin: 0 auto; /* 中央寄せ */
-    min-height: 100vh; /* 最低でも画面の高さ分は確保 */
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
     box-sizing: border-box;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(16,24,40,0.08);
     padding-bottom: 40px;
+    position: relative;
     
-    /* 🌟 ここに動く背景の設定を移動 */
-    background: linear-gradient(-45deg, #fff1f3, #ffe3e8, #ffffff, #fdfbfb);
-    background-size: 400% 400%;
+    /* エラー回避のため、ツタ模様のSVGをBase64文字列に変換して適用 */
+    background: 
+        url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAsMTAwIEMzMCw3MCA3MCw3MCAxMDAsMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2YjgxIiBzdHJva2Utd2lkdGg9IjEuNSIgb3BhY2l0eT0iMC4zIi8+PHBhdGggZD0iTSAzMCw3MCBDIDIwLDUwIDQwLDQwIDUwLDU1IEMgNDAsNjUgMjUsNzUgMzAsNzAgWiIgZmlsbD0iI2ZmNmI4MSIgb3BhY2l0eT0iMC4yIi8+PHBhdGggZD0iTSA3MCwzMCBDIDgwLDUwIDYwLDYwIDUwLDQ1IEMgNjAsMzUgNzUsMjUgNzAsMzAgWiIgZmlsbD0iI2ZmNmI4MSIgb3BhY2l0eT0iMC4yIi8+PC9zdmc+") repeat,
+        linear-gradient(-45deg, #fff1f3, #ffe3e8, #ffffff, #fdfbfb);
+    
+    background-size: 100px 100px, 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
 
