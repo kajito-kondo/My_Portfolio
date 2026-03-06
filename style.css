@@ -1,39 +1,18 @@
 /* 全体の基本設定（ピンクの背景） */
-/* 全体の基本設定（動くグラデーション背景） */
-/* 全体の基本設定（元の白背景に戻す） */
 body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
-/* 中央のキャンバス（こちらを動かす！） */
+/* 中央の白いキャンバス */
 .container {
-    max-width: 1000px; /* 全体の最大幅 */
-    margin: 0 auto; /* 中央寄せ */
-    min-height: 100vh; /* 最低でも画面の高さ分は確保 */
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
     box-sizing: border-box;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
-    padding-bottom: 40px;
-    
-    /* 🌟 ここに動く背景の設定を移動 */
-    background: linear-gradient(-45deg, #fff1f3, #ffe3e8, #ffffff, #fdfbfb);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
-
-/* 🌟 アニメーションの動き（そのまま残す） */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* コンテナをモダンに見せる */
-.container {
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(16,24,40,0.08);
@@ -49,7 +28,7 @@ body {
 
 /* タイトルエリア */
 .header {
-    background-color: #d9d9d9; /* 薄いグレー */
+    background-color: #d9d9d9;
     padding: 18px 0;
     text-align: center;
     background: linear-gradient(90deg,#ffffff 0%, #fbfbfb 100%);
@@ -67,13 +46,7 @@ body {
 /* 丸いアイコンの行 */
 .icon-row {
     display: flex;
-    justify-content: space-between; /* 均等に配置 */
-    padding: 50px 40px;
-}
-
-.icon-row {
-    display: flex;
-    justify-content: space-between; /* 均等に配置 */
+    justify-content: space-between;
     padding: 50px 40px;
     gap: 18px;
 }
@@ -81,8 +54,8 @@ body {
 .circle {
     width: 104px;
     height: 104px;
-    border-radius: 50%; /* 正円にする */
-    background-color: #eef2f5; /* 明るいグレー */
+    border-radius: 50%;
+    background-color: #eef2f5;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -104,39 +77,14 @@ body {
     font-weight: 600;
 }
 
-/* smaller on mobile */
-@media (max-width: 600px) {
-    .icon-row { 
-        gap: 6px; /* 隙間を調整して5つ収める */
-        padding: 24px 10px; 
-        align-items: center; /* 🌟ボタンの縦の位置を強制的に一直線に揃える */
-    }
-    .circle { 
-        width: 58px; /* 🌟画面からはみ出さないサイズに微調整 */
-        height: 58px; 
-    }
-    .circle svg { 
-        width: 22px; 
-        height: 22px; 
-    }
-    .circle-label { 
-        font-size: 10px; /* 文字が折り返してズレるのを防ぐ */
-    }
-    /* 🌟スマホでタップした後にボタンが浮いたままになる現象を防ぐ */
-    .circle:focus { 
-        transform: none; 
-        box-shadow: 0 8px 18px rgba(16,24,40,0.04);
-    }
-}
-
 /* --- About Me セクション --- */
 .about-me {
-    padding: 0 40px 50px 40px; /* 全体の余白 */
+    padding: 0 40px 50px 40px;
 }
 
 /* サブタイトルのデザイン */
 .section-title {
-    text-align: center; /* タイトルを中央寄せ */
+    text-align: center;
     font-size: 24px;
     font-weight: 700;
     color: #333;
@@ -147,11 +95,9 @@ body {
 /* メインコンテンツ（画像とコメントの配置） */
 .content {
     display: flex;
-    gap: 40px; /* 画像とコメントの間の余白 */
-    /* ※ここにあったpaddingは .about-me に移動しました */
+    gap: 40px;
 }
 
-/* 画像のプレースホルダー */
 .image-box {
     width: 300px;
     height: 350px;
@@ -162,45 +108,16 @@ body {
     text-align: center;
     font-size: 24px;
     color: #000;
-    flex-shrink: 0; /* 画像サイズが縮まないようにする */
+    flex-shrink: 0;
 }
 
-/* コメントエリア */
 .text-box {
-    flex: 1; /* 残りの幅をすべて埋める */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     color: #000;
-}
-
-/* --- スマホ向けのレスポンシブ対応 --- */
-@media (max-width: 600px) {
-    .icon-row {
-        padding: 30px 20px;
-    }
-    
-    .circle {
-        width: 50px;
-        height: 50px;
-    }
-
-    /* スマホ用のAbout Me余白 */
-    .about-me {
-        padding: 0 20px 40px 20px;
-    }
-
-    .content {
-        flex-direction: column; /* 縦並びにする */
-        align-items: center;
-        /* ※ここにあったpaddingは削除しました */
-    }
-
-    .image-box {
-        width: 100%; /* スマホでは横幅いっぱいにする */
-        max-width: 300px;
-    }
 }
 
 /* --- 能力ゲージ --- */
@@ -222,7 +139,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* ゲージ用の新しい設定（ここから） */
 .skill-label {
     width: 110px;
     color: #444;
@@ -231,7 +147,7 @@ body {
 
 .gauge-track {
     flex: 1;
-    height: 12px; /* ゲージの太さ */
+    height: 12px;
     background: #efe9e9;
     border-radius: 999px;
     overflow: hidden;
@@ -242,7 +158,6 @@ body {
     background: linear-gradient(90deg, #ff6b81, #ff8fa3);
     border-radius: 999px;
 }
-/* ゲージ用の新しい設定（ここまで） */
 
 .skill .skill-value {
     min-width: 46px;
@@ -255,16 +170,10 @@ body {
     box-shadow: 0 6px 14px rgba(255,107,129,0.12);
 }
 
-/* スマホ向けのレスポンシブ対応 */
-@media (max-width: 600px) {
-    .skills { padding: 20px; }
-    .skill-label { width: 64px; font-size: 14px; }
-}
 /* --- Works セクション --- */
 .works {
-    /* Skillsセクションと同じ余白感と背景デザインを適用 */
     padding: 28px 40px 60px 40px;
-    margin: 18px 24px 40px 24px; /* 下にも少し余白を追加 */
+    margin: 18px 24px 40px 24px; 
     background: linear-gradient(180deg, #ffffff, #fffafc);
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(16,24,40,0.04);
@@ -273,21 +182,24 @@ body {
 /* カードを並べるグリッドコンテナ */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
-    gap: 24px; /* カード間の余白 */
+    grid-template-columns: repeat(3, 1fr); /* 🌟 ここでPCでは3列に設定 */
+    gap: 24px;
+    margin-top: 24px;
 }
 
 /* 作品カード単体 */
 .work-card {
     background: #fff;
     border-radius: 12px;
-    overflow: hidden; /* 角丸からはみ出た画像を隠す */
+    overflow: hidden; 
     border: 1px solid rgba(16,24,40,0.05);
     box-shadow: 0 4px 12px rgba(16,24,40,0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* 中身を縦に並べる */
 }
 
-/* カードのホバーエフェクト（浮き上がる） */
+/* カードのホバーエフェクト */
 .work-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(16,24,40,0.08);
@@ -307,16 +219,19 @@ body {
 .work-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像の比率を保ってエリアを埋める */
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 .work-card:hover .work-image img {
-    transform: scale(1.05); /* ホバー時に画像も少し拡大 */
+    transform: scale(1.05); 
 }
 
 /* カード内のテキストコンテンツ */
 .work-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* 高さを揃えるため */
 }
 
 /* 作品タイトル */
@@ -333,6 +248,7 @@ body {
     font-size: 14px;
     color: #666;
     line-height: 1.6;
+    flex: 1; /* ボタンを一番下に押しやる */
 }
 
 /* ボタン */
@@ -343,172 +259,93 @@ body {
     font-weight: 600;
     color: #fff;
     text-decoration: none;
-    background: linear-gradient(90deg, #ff6b81, #ff8fa3); /* ピンクのグラデーション */
+    background: linear-gradient(90deg, #ff6b81, #ff8fa3); 
     border-radius: 999px;
     box-shadow: 0 4px 10px rgba(255,107,129,0.2);
     transition: opacity 0.2s;
+    text-align: center;
 }
 
 .work-button:hover {
     opacity: 0.9;
 }
 
-
-/* --- スマホ向けのレスポンシブ対応の追加 --- */
-/* 既存の @media (max-width: 600px) のブロック内に以下を追記しても良いですが、
-   わかりやすく一番下に追加します。既存の設定を上書きします。 */
-@media (max-width: 600px) {
-    .works {
-        padding: 20px; /* スマホでの余白調整 */
-        margin: 18px 0 40px 0; /* スマホでは左右の余白をなくす */
-        border-radius: 0; /* スマホでは角丸をなくして画面幅いっぱいにする */
-    }
-
-    .works-grid {
-        grid-template-columns: 1fr; /* スマホでは1列にする */
-        gap: 16px;
-    }
-}
-/* --- Life セクション --- */
 /* --- Life セクション --- */
 .life {
     padding: 28px 40px 60px 40px;
     margin: 18px 24px 40px 24px;
-    /* 元のグラデーション背景を削除し、アニメーションを設定 */
-    /* background: linear-gradient(180deg, #ffffff, #fffafc); */
-    background-color: #333; /* 画像読み込み前の背景色 */
-    background-size: cover;
-    background-position: center;
-    /* 15秒かけてアニメーションを無限に繰り返す */
-    animation: lifeBgSlide 15s ease-in-out infinite;
-    
+    background: linear-gradient(180deg, #ffffff, #fffafc);
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(16,24,40,0.04);
-    
-    /* 背景が暗くなるので文字色を白にする */
-    color: #ffffff;
-    /* 文字を読みやすくするための影 */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    overflow: hidden; /* 角丸からはみ出た背景を隠す */
-    position: relative; /* 子要素の基準にする */
 }
 
-/* 🌟背景画像を切り替えるアニメーションの定義 */
-@keyframes lifeBgSlide {
-    0% {
-        background-image: url('カフェでPCを使った仕事をしている画像_人間は入れないでね.jpg'); /* 1枚目 */
-    }
-    33% {
-        background-image: url('最高の一杯のラーメン.jpg'); /* 2枚目 */
-    }
-    66% {
-        background-image: url('旅行に行きたくなるような写真_人間はうつさないでね (1).jpg'); /* 3枚目 */
-    }
-    100% {
-        background-image: url('カフェでPCを使った仕事をしている画像_人間は入れないでね.jpg'); /* 1枚目に戻る */
-    }
-}
-
-/* Life内のレイアウト（PCでは左右分割） */
 .life-container {
     display: flex;
     gap: 50px;
-    /* 背景が暗いので、コンテンツが少し浮き出るように調整 */
-    background: rgba(0, 0, 0, 0.3); /* 半透明の黒いフィルター */
-    padding: 30px;
-    border-radius: 12px;
-    backdrop-filter: blur(2px); /* 少しぼかしを入れる */
 }
 
-/* 普段の生活テキストエリア */
 .life-text {
-    flex: 1; /* 左側を広く取る */
+    flex: 1; 
 }
 
 .life-text p {
-    /* 元の文字色指定を削除し、親要素(.life)の色を継承 */
-    /* color: #555; */
-    color: inherit;
+    color: #555;
     line-height: 1.8;
     font-size: 15px;
     margin: 0;
 }
 
-/* 小見出しのデザイン */
 .life-subtitle {
     margin: 0 0 16px 0;
     font-size: 18px;
     font-weight: 700;
-    /* 元の文字色指定を削除 */
-    /* color: #333; */
-    color: inherit;
-    /* 左側の線を少し明るい色に変更して目立たせる */
+    color: #333;
     padding-left: 10px;
-    border-left: 4px solid #ff8fa3; 
+    border-left: 4px solid #ff6b81;
 }
 
-/* タグエリア（右側） */
 .life-tags-area {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* 趣味と食べ物の間の余白 */
+    gap: 30px; 
 }
 
-/* タグを並べるコンテナ */
 .tags {
     display: flex;
-    flex-wrap: wrap; /* 端まで行ったら折り返す */
+    flex-wrap: wrap; 
     gap: 10px;
 }
 
-/* 趣味のタグ（白背景に変更） */
 .tag {
     display: inline-block;
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.9); /* 少し透けた白 */
-    color: #444; /* 文字は濃いグレー */
+    background: #eef2f5;
+    color: #444;
     font-size: 14px;
     font-weight: 600;
     border-radius: 999px;
     transition: transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-shadow: none; /* タグの文字には影をつけない */
 }
 
 .tag:hover {
-    transform: translateY(-2px); /* 少し浮き上がる */
+    transform: translateY(-2px); 
 }
 
-/* 好きな食べ物のタグ（ピンク系） */
 .food-tag {
-    background: rgba(255, 240, 242, 0.95); /* 少し透けた薄ピンク */
+    background: #fff0f2;
     color: #ff6b81;
-    border: 1px solid rgba(255,107,129,0.3);
+    border: 1px solid rgba(255,107,129,0.2);
 }
 
-/* --- スマホ向けのレスポンシブ対応 --- */
-@media (max-width: 600px) {
-    .life {
-        padding: 20px;
-        margin: 18px 0 40px 0;
-        border-radius: 0;
-    }
-
-    .life-container {
-        flex-direction: column; /* スマホでは縦並びにする */
-        gap: 30px;
-        padding: 20px; /* スマホでの内側余白 */
-    }
-}
 /* --- Contact セクション --- */
 .contact {
     padding: 28px 40px 60px 40px;
-    margin: 18px 24px 60px 24px; /* 一番下のセクションなので下余白を多めに */
+    margin: 18px 24px 60px 24px; 
     background: linear-gradient(180deg, #ffffff, #fffafc);
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(16,24,40,0.04);
-    text-align: center; /* 全体を中央寄せ */
+    text-align: center; 
 }
 
 .contact-container {
@@ -525,7 +362,6 @@ body {
     margin: 0;
 }
 
-/* メールアドレスのリンク（ボタン風） */
 .contact-email {
     display: inline-flex;
     align-items: center;
@@ -533,15 +369,14 @@ body {
     padding: 14px 32px;
     font-size: 18px;
     font-weight: 600;
-    color: #ff6b81; /* テーマカラーのピンク */
-    background: #fff0f2; /* 薄いピンクの背景 */
+    color: #ff6b81; 
+    background: #fff0f2; 
     border: 2px solid rgba(255,107,129,0.2);
     border-radius: 999px;
-    text-decoration: none; /* リンクの下線を消す */
+    text-decoration: none; 
     transition: all 0.2s ease;
 }
 
-/* マウスオーバー時のエフェクト */
 .contact-email:hover {
     background: #ff6b81;
     color: #ffffff;
@@ -549,23 +384,6 @@ body {
     box-shadow: 0 8px 16px rgba(255,107,129,0.2);
 }
 
-/* --- スマホ向けのレスポンシブ対応 --- */
-@media (max-width: 600px) {
-    .contact {
-        padding: 30px 20px;
-        margin: 18px 0 60px 0;
-        border-radius: 0;
-    }
-    
-    .contact-email {
-        font-size: 16px;
-        padding: 12px 20px;
-        width: 100%; /* スマホではボタンの幅を広げる */
-        max-width: 320px;
-        box-sizing: border-box;
-        justify-content: center;
-    }
-}
 /* --- トップへ戻るボタン --- */
 .back-to-top {
     position: fixed;
@@ -583,126 +401,105 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    
-    /* 初期状態は透明にして、クリックできないようにする */
     opacity: 0;
     visibility: hidden;
-    z-index: 1000; /* 他の要素より上に表示 */
+    z-index: 1000; 
 }
 
-/* JavaScriptでこのクラスが付与されたらフワッと表示 */
 .back-to-top.show {
     opacity: 1;
     visibility: visible;
 }
 
-/* マウスオーバー時のエフェクト */
 .back-to-top:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(255,107,129,0.4);
 }
 
-/* スマホ向けのレスポンシブ対応 */
+/* =========================================
+   スマホ向けのレスポンシブ対応（まとめて最後に記述）
+========================================= */
 @media (max-width: 600px) {
+    .icon-row {
+        gap: 6px; 
+        padding: 24px 10px; 
+        align-items: center;
+    }
+    
+    .circle {
+        width: 58px; 
+        height: 58px; 
+    }
+    .circle svg { 
+        width: 22px; 
+        height: 22px; 
+    }
+    .circle-label { 
+        font-size: 10px; 
+    }
+    .circle:focus { 
+        transform: none; 
+        box-shadow: 0 8px 18px rgba(16,24,40,0.04);
+    }
+
+    .about-me {
+        padding: 0 20px 40px 20px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-box {
+        width: 100%; 
+        max-width: 300px;
+    }
+
+    .skills { padding: 20px; }
+    .skill-label { width: 64px; font-size: 14px; }
+
+    .works {
+        padding: 20px; 
+        margin: 18px 0 40px 0; 
+        border-radius: 0; 
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr; /* 🌟 スマホでは1列 */
+        gap: 16px;
+    }
+
+    .life {
+        padding: 20px;
+        margin: 18px 0 40px 0;
+        border-radius: 0;
+    }
+
+    .life-container {
+        flex-direction: column; 
+        gap: 40px;
+    }
+
+    .contact {
+        padding: 30px 20px;
+        margin: 18px 0 60px 0;
+        border-radius: 0;
+    }
+    
+    .contact-email {
+        font-size: 16px;
+        padding: 12px 20px;
+        width: 100%; 
+        max-width: 320px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
     .back-to-top {
         bottom: 20px;
         right: 20px;
-        width: 44px; /* スマホでは少し小さく */
+        width: 44px; 
         height: 44px;
     }
 }
-/* --- スクロールアニメーション（フワッと表示） --- */
-.fade-in-section {
-    opacity: 0; /* 最初は透明にして見えなくする */
-    transform: translateY(40px); /* 最初は40px下にズラしておく */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 0.8秒かけてフワッと動かす */
-    will-change: opacity, transform; /* ブラウザにアニメーションを予告して動きを滑らかにする */
-}
-
-/* 画面内に入って 'is-visible' という印がついた時の状態 */
-.fade-in-section.is-visible {
-    opacity: 1; /* 完全に表示する */
-    transform: none; /* 元の正しい位置に戻す */
-}
-/* =========================================
-   オープニングアニメーション（炭酸）
-========================================= */
-/* 画面全体を覆うコンテナ */
-.splash-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff; /* 背景色（最初は真っ白でコンテンツを隠す） */
-    z-index: 9999; /* 最前面に表示 */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* 下から泡を出すため */
-    overflow: hidden;
-    /* アニメーションが終わったらコンテナ自体をフワッと消す */
-    animation: hideOverlay 0.5s ease-out 2.5s forwards;
-    pointer-events: none; /* アニメーション中も後ろのボタンを押せるように念のため */
-}
-
-/* コンテナを消すアニメーション */
-@keyframes hideOverlay {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* 泡の共通スタイル */
-.bubble {
-    position: absolute;
-    bottom: -10%; /* 最初は画面の下に隠しておく */
-    background-color: rgba(255, 107, 129, 0.6); /* テーマカラーのピンク（半透明） */
-    border-radius: 50%;
-    pointer-events: none;
-    /* 下から上へ移動しつつ弾けるアニメーション */
-    animation: riseAndPop ease-in forwards;
-}
-
-/* 泡が上昇して弾ける動き */
-@keyframes riseAndPop {
-    0% {
-        bottom: -10%;
-        transform: translateX(0) scale(0.5);
-        opacity: 0;
-    }
-    20% {
-        opacity: 1; /* 途中で現れる */
-    }
-    80% {
-        opacity: 0.8;
-    }
-    100% {
-        bottom: 120%; /* 画面の上まで突き抜ける */
-        transform: translateX(var(--zigzag)) scale(var(--scale-end)); /* 左右に揺れながら大きくなる */
-        opacity: 0; /* 最後は消える */
-    }
-}
-
-/* --- 泡ごとのランダム設定（サイズ、位置、速度、揺れ幅） --- */
-/* 20個の泡にそれぞれ違う個性を出します */
-.bubble:nth-child(1)  { left: 5%;  width: 20px; height: 20px; animation-duration: 2.0s; animation-delay: 0.1s; --zigzag: -20px; --scale-end: 1.2; }
-.bubble:nth-child(2)  { left: 12%; width: 30px; height: 30px; animation-duration: 2.5s; animation-delay: 0.3s; --zigzag: 30px;  --scale-end: 1.5; }
-.bubble:nth-child(3)  { left: 18%; width: 15px; height: 15px; animation-duration: 1.8s; animation-delay: 0.5s; --zigzag: -10px; --scale-end: 1.0; }
-.bubble:nth-child(4)  { left: 25%; width: 25px; height: 25px; animation-duration: 2.2s; animation-delay: 0.0s; --zigzag: 15px;  --scale-end: 1.3; }
-.bubble:nth-child(5)  { left: 32%; width: 35px; height: 35px; animation-duration: 2.7s; animation-delay: 0.2s; --zigzag: -25px; --scale-end: 1.6; }
-.bubble:nth-child(6)  { left: 38%; width: 18px; height: 18px; animation-duration: 1.9s; animation-delay: 0.6s; --zigzag: 20px;  --scale-end: 1.1; }
-.bubble:nth-child(7)  { left: 45%; width: 28px; height: 28px; animation-duration: 2.4s; animation-delay: 0.4s; --zigzag: -15px; --scale-end: 1.4; }
-.bubble:nth-child(8)  { left: 52%; width: 22px; height: 22px; animation-duration: 2.1s; animation-delay: 0.1s; --zigzag: 10px;  --scale-end: 1.2; }
-.bubble:nth-child(9)  { left: 60%; width: 32px; height: 32px; animation-duration: 2.6s; animation-delay: 0.3s; --zigzag: -30px; --scale-end: 1.5; }
-.bubble:nth-child(10) { left: 68%; width: 16px; height: 16px; animation-duration: 1.8s; animation-delay: 0.7s; --zigzag: 25px;  --scale-end: 1.0; }
-.bubble:nth-child(11) { left: 75%; width: 26px; height: 26px; animation-duration: 2.3s; animation-delay: 0.2s; --zigzag: -20px; --scale-end: 1.3; }
-.bubble:nth-child(12) { left: 82%; width: 34px; height: 34px; animation-duration: 2.8s; animation-delay: 0.5s; --zigzag: 15px;  --scale-end: 1.6; }
-.bubble:nth-child(13) { left: 88%; width: 19px; height: 19px; animation-duration: 2.0s; animation-delay: 0.0s; --zigzag: -10px; --scale-end: 1.1; }
-.bubble:nth-child(14) { left: 95%; width: 29px; height: 29px; animation-duration: 2.5s; animation-delay: 0.4s; --zigzag: 20px;  --scale-end: 1.4; }
-.bubble:nth-child(15) { left: 3%;  width: 14px; height: 14px; animation-duration: 1.7s; animation-delay: 0.6s; --zigzag: -15px; --scale-end: 1.0; background-color: rgba(255, 160, 175, 0.6); } /* 少し色を変えてみる */
-.bubble:nth-child(16) { left: 97%; width: 24px; height: 24px; animation-duration: 2.2s; animation-delay: 0.1s; --zigzag: 10px;  --scale-end: 1.2; }
-.bubble:nth-child(17) { left: 42%; width: 31px; height: 31px; animation-duration: 2.6s; animation-delay: 0.3s; --zigzag: -25px; --scale-end: 1.5; }
-.bubble:nth-child(18) { left: 58%; width: 17px; height: 17px; animation-duration: 1.9s; animation-delay: 0.7s; --zigzag: 15px;  --scale-end: 1.1; }
-.bubble:nth-child(19) { left: 72%; width: 27px; height: 27px; animation-duration: 2.4s; animation-delay: 0.2s; --zigzag: -20px; --scale-end: 1.3; background-color: rgba(255, 160, 175, 0.6); }
-.bubble:nth-child(20) { left: 85%; width: 21px; height: 21px; animation-duration: 2.1s; animation-delay: 0.5s; --zigzag: 10px;  --scale-end: 1.2; }
