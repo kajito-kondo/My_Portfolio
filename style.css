@@ -1,4 +1,4 @@
-/* style.css - Premium Dark Theme (Section Box Enhanced) */
+/* style.css - Premium Dark Theme (Complete Version) */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap');
 
 :root {
@@ -95,7 +95,7 @@ h1, h2, h3, .circle-label, .splash-logo, .work-button {
     margin-top: 10px;
 }
 
-/* 🌟【新規追加】セクション全体を囲む枠のデザイン */
+/* --- セクション全体を囲む枠のデザイン --- */
 section.fade-in-section {
     border: 1px solid var(--border-color);
     background-color: rgba(17, 17, 17, 0.5); /* 半透明にして背景の波を透けさせる */
@@ -109,7 +109,7 @@ section.fade-in-section {
     text-align: center;
     font-size: 2.2rem;
     color: var(--accent-gold);
-    margin-top: 0; /* 枠の上の隙間を詰める */
+    margin-top: 0; 
     margin-bottom: 50px;
     position: relative;
 }
@@ -126,7 +126,6 @@ section.fade-in-section {
 .content {
     display: flex;
     gap: 40px;
-    /* 以前あった背景色や枠線は、親要素(section)に移動したため削除しました */
 }
 .image-box {
     flex: 1;
@@ -231,7 +230,7 @@ section.fade-in-section {
     gap: 40px;
 }
 .work-card {
-    background-color: rgba(0, 0, 0, 0.4); /* カードの背景も少し透かす */
+    background-color: rgba(0, 0, 0, 0.4); 
     border: 1px solid var(--border-color);
     transition: transform 0.5s ease, border-color 0.5s ease;
 }
@@ -279,9 +278,6 @@ section.fade-in-section {
 }
 
 /* --- Life --- */
-.life-container {
-    /* 以前あった背景色や枠線、パディングは削除しました */
-}
 .life-subtitle {
     color: var(--accent-gold);
     font-size: 1.2rem;
@@ -304,13 +300,12 @@ section.fade-in-section {
     font-size: 0.85rem;
     color: var(--text-muted);
     letter-spacing: 0.1em;
-    background-color: rgba(0, 0, 0, 0.4); /* タグも少し透かす */
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
 /* --- Contact --- */
 .contact-container {
     text-align: center;
-    /* 以前あった背景グラデーションや枠線、パディングは削除しました */
 }
 .contact-text {
     margin-bottom: 50px;
@@ -333,7 +328,7 @@ section.fade-in-section {
     background-color: var(--accent-gold-hover);
 }
 
-/* --- Splash Overlay --- */
+/* --- Splash Overlay (暗転アニメーション) --- */
 .splash-overlay {
     position: fixed;
     top: 0;
@@ -351,6 +346,10 @@ section.fade-in-section {
     color: var(--accent-gold);
     font-size: 3.5rem;
     opacity: 0;
+    text-align: center;     /* 文字を中央揃えに */
+    width: 100%;            /* 横幅をいっぱいにして確実に中央を取る */
+    padding: 0 20px;        /* 画面の端にくっつかないように余白を確保 */
+    box-sizing: border-box;
     animation: fadeInOut 3s ease-in-out forwards;
 }
 @keyframes fadeOut {
@@ -405,7 +404,9 @@ section.fade-in-section {
     transform: none;
 }
 
-/* レスポンシブ対応（スマホ向け） */
+/* =======================================================
+   レスポンシブ対応（スマホ向け）
+   ======================================================= */
 @media (max-width: 768px) {
     section.fade-in-section {
         padding: 40px 20px; /* スマホでは枠内の余白を少し狭くする */
@@ -424,6 +425,10 @@ section.fade-in-section {
         width: 100%;
         display: block;
         margin: 10px 0;
+    }
+    /* スマホでのオープニングロゴのサイズ調整 */
+    .splash-logo {
+        font-size: 2.2rem;
     }
 }
 
