@@ -1,505 +1,433 @@
-/* 全体の基本設定（ピンクの背景） */
+/* style.css - Premium Dark Theme (Section Box Enhanced) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+:root {
+    --bg-base: #050505;       /* 最も深い漆黒 */
+    --bg-surface: #111111;    /* コンテンツの背景色 */
+    --text-main: #f0f0f0;     /* 白（少しトーンを落として目に優しく） */
+    --text-muted: #888888;    /* 暗いグレー */
+    --accent-gold: #cba153;   /* 高級感のあるゴールド */
+    --accent-gold-hover: #e5b65e;
+    --border-color: #333333;  /* 枠線の色 */
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #ffffff;
+    
+    background-color: var(--bg-base);
+    background-image: 
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="40" viewBox="0 0 1000 40"><path d="M0,20 C250,-10 750,50 1000,20" stroke="%23443e30" stroke-width="0.3" stroke-opacity="0.3" fill="none"/></svg>'),
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="50" viewBox="0 0 1500 50"><path d="M0,25 C375,-20 1125,70 1500,25" stroke="%238a713e" stroke-width="0.5" stroke-opacity="0.4" fill="none"/></svg>'),
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="30" viewBox="0 0 800 30"><path d="M0,15 C200,-10 600,40 800,15" stroke="%23241e15" stroke-width="0.2" stroke-opacity="0.2" fill="none"/></svg>');
+    background-repeat: repeat; 
+    animation: silken-wave-1 30s ease-in-out infinite, silken-wave-2 20s ease-in-out infinite, silken-wave-3 12s ease-in-out infinite;
+
+    color: var(--text-main);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
 }
 
-/* 中央の白いキャンバス */
+/* --- タイトル・欧文フォントの統一 --- */
+h1, h2, h3, .circle-label, .splash-logo, .work-button {
+    font-family: 'Cinzel', serif; 
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* --- 全体レイアウト --- */
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: #ffffff;
-    min-height: 100vh;
-    box-sizing: border-box;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
-    padding-bottom: 40px;
+    padding: 0 20px 80px;
+    position: relative; 
+    z-index: 1;
 }
 
-/* 上部の黒いバー */
-.top-black-bar {
-    background-color: #000000;
-    height: 30px;
-    width: 100%;
-}
-
-/* タイトルエリア */
+/* ヘッダー */
 .header {
-    background-color: #d9d9d9;
-    padding: 18px 0;
     text-align: center;
-    background: linear-gradient(90deg,#ffffff 0%, #fbfbfb 100%);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    padding: 100px 0 40px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 50px;
 }
 
 .header h1 {
+    font-size: 2.8rem;
+    color: var(--accent-gold);
     margin: 0;
-    font-size: 28px;
-    font-weight: normal;
-    color: #000;
-    letter-spacing: 2px;
 }
 
-/* 丸いアイコンの行 */
+/* --- アイコンメニュー --- */
 .icon-row {
     display: flex;
-    justify-content: space-between;
-    padding: 50px 40px;
-    gap: 18px;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
 }
 
 .circle {
-    width: 104px;
-    height: 104px;
-    border-radius: 50%;
-    background-color: #eef2f5;
-    display: inline-flex;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    width: 90px;
+    height: 90px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 6px;
-    border: 1px solid rgba(16,24,40,0.03);
-    box-shadow: 0 8px 18px rgba(16,24,40,0.04);
+    justify-content: center;
     cursor: pointer;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transition: all 0.4s ease;
 }
-.circle:focus { outline: none; box-shadow: 0 10px 24px rgba(16,24,40,0.08); transform: translateY(-3px); }
-.circle:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(16,24,40,0.08); }
-.circle svg { display: block; }
+
+.circle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background: rgba(203, 161, 83, 0.05); 
+}
+
 .circle-label {
-    display: block;
-    font-size: 13px;
-    color: #475569;
-    margin-top: 2px;
-    font-weight: 600;
+    font-size: 0.75rem;
+    margin-top: 10px;
 }
 
-/* --- About Me セクション --- */
-.about-me {
-    padding: 0 40px 50px 40px;
+/* 🌟【新規追加】セクション全体を囲む枠のデザイン */
+section.fade-in-section {
+    border: 1px solid var(--border-color);
+    background-color: rgba(17, 17, 17, 0.5); /* 半透明にして背景の波を透けさせる */
+    backdrop-filter: blur(4px); /* 背景をわずかにぼかしてガラス風の高級感を出す */
+    padding: 60px 50px; /* 枠の内側の余白 */
+    margin-bottom: 80px; /* セクション同士の隙間 */
 }
 
-/* サブタイトルのデザイン */
+/* --- セクション見出し --- */
 .section-title {
     text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 30px 0;
-    letter-spacing: 1px;
+    font-size: 2.2rem;
+    color: var(--accent-gold);
+    margin-top: 0; /* 枠の上の隙間を詰める */
+    margin-bottom: 50px;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--accent-gold);
+    margin: 20px auto 0;
 }
 
-/* メインコンテンツ（画像とコメントの配置） */
+/* --- About Me --- */
 .content {
     display: flex;
     gap: 40px;
+    /* 以前あった背景色や枠線は、親要素(section)に移動したため削除しました */
 }
-
 .image-box {
-    width: 300px;
-    height: 350px;
-    background-color: #d9d9d9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    color: #000;
-    flex-shrink: 0;
-}
-
-.text-box {
     flex: 1;
+    background-color: #1a1a1a;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 24px;
-    color: #000;
+    justify-content: center;
+    min-height: 250px;
+    color: var(--border-color);
+    border: 1px solid var(--border-color);
+    font-family: 'Cinzel', serif;
+}
+.text-box {
+    flex: 2;
+    color: var(--text-muted);
+}
+.about-info {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+.about-info li {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color); 
+}
+.about-info li:last-child {
+    border-bottom: none; 
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.info-label {
+    display: block;
+    color: var(--accent-gold);
+    font-family: 'Cinzel', serif; 
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 5px;
+}
+.info-text {
+    color: var(--text-main);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+.about-message {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color); 
+    color: var(--text-muted); 
+    font-size: 0.95rem;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
 }
 
-/* --- 能力ゲージ --- */
-.skills {
-    padding: 28px 40px 60px 40px;
-    margin: 18px 24px 0 24px;
-    background: linear-gradient(180deg, #ffffff, #fffafc);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+/* --- Skills --- */
+.skills-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: -30px; 
+    margin-bottom: 40px; 
+    letter-spacing: 0.05em;
 }
 
 .skill {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
-    margin-bottom: 8px;
+    margin-bottom: 30px;
 }
-
 .skill-label {
-    width: 110px;
-    color: #444;
-    font-size: 15px;
+    display: inline-block;
+    width: 140px;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
 }
-
 .gauge-track {
-    flex: 1;
-    height: 12px;
-    background: #efe9e9;
-    border-radius: 999px;
-    overflow: hidden;
+    display: inline-block;
+    width: calc(100% - 200px);
+    height: 1px;
+    background-color: var(--border-color);
+    vertical-align: middle;
+    position: relative;
 }
-
 .gauge-fill {
     height: 100%;
-    background: linear-gradient(90deg, #ff6b81, #ff8fa3);
-    border-radius: 999px;
+    background-color: var(--accent-gold);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.skill-value {
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
 }
 
-.skill .skill-value {
-    min-width: 46px;
-    padding: 6px 8px;
-    border-radius: 999px;
-    text-align: center;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(90deg,#ff6b81,#ff8fa3);
-    box-shadow: 0 6px 14px rgba(255,107,129,0.12);
-}
-
-/* --- Works セクション --- */
-.works {
-    padding: 28px 40px 60px 40px;
-    margin: 18px 24px 40px 24px; 
-    background: linear-gradient(180deg, #ffffff, #fffafc);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
-}
-
-/* カードを並べるグリッドコンテナ */
+/* --- Works --- */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 🌟 ここでPCでは3列に設定 */
-    gap: 24px;
-    margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
 }
-
-/* 作品カード単体 */
 .work-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden; 
-    border: 1px solid rgba(16,24,40,0.05);
-    box-shadow: 0 4px 12px rgba(16,24,40,0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column; /* 中身を縦に並べる */
+    background-color: rgba(0, 0, 0, 0.4); /* カードの背景も少し透かす */
+    border: 1px solid var(--border-color);
+    transition: transform 0.5s ease, border-color 0.5s ease;
 }
-
-/* カードのホバーエフェクト */
 .work-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(16,24,40,0.08);
+    transform: translateY(-8px);
+    border-color: var(--accent-gold);
 }
-
-/* 作品サムネイル画像エリア */
-.work-image {
-    width: 100%;
-    height: 180px;
-    background: #eef2f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
 .work-image img {
     width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    filter: grayscale(80%) contrast(120%); 
+    transition: filter 0.5s ease;
+    display: block;
 }
 .work-card:hover .work-image img {
-    transform: scale(1.05); 
+    filter: grayscale(0%) contrast(100%); 
 }
-
-/* カード内のテキストコンテンツ */
 .work-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* 高さを揃えるため */
-}
-
-/* 作品タイトル */
-.work-title {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-}
-
-/* 作品説明文 */
-.work-description {
-    margin: 0 0 20px 0;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.6;
-    flex: 1; /* ボタンを一番下に押しやる */
-}
-
-/* ボタン */
-.work-button {
-    display: inline-block;
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(90deg, #ff6b81, #ff8fa3); 
-    border-radius: 999px;
-    box-shadow: 0 4px 10px rgba(255,107,129,0.2);
-    transition: opacity 0.2s;
+    padding: 30px 25px;
     text-align: center;
 }
-
+.work-title {
+    font-size: 1.2rem;
+    margin: 0 0 15px;
+    color: var(--text-main);
+}
+.work-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+.work-button {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.4s ease;
+}
 .work-button:hover {
-    opacity: 0.9;
+    background-color: var(--accent-gold);
+    color: var(--bg-base);
 }
 
-/* --- Life セクション --- */
-.life {
-    padding: 28px 40px 60px 40px;
-    margin: 18px 24px 40px 24px;
-    background: linear-gradient(180deg, #ffffff, #fffafc);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
-}
-
+/* --- Life --- */
 .life-container {
-    display: flex;
-    gap: 50px;
+    /* 以前あった背景色や枠線、パディングは削除しました */
 }
-
-.life-text {
-    flex: 1; 
-}
-
-.life-text p {
-    color: #555;
-    line-height: 1.8;
-    font-size: 15px;
-    margin: 0;
-}
-
 .life-subtitle {
-    margin: 0 0 16px 0;
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    padding-left: 10px;
-    border-left: 4px solid #ff6b81;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    display: inline-block;
 }
-
-.life-tags-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 30px; 
+.life-text p {
+    color: var(--text-muted);
 }
-
 .tags {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-
 .tag {
-    display: inline-block;
-    padding: 8px 16px;
-    background: #eef2f5;
-    color: #444;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 999px;
-    transition: transform 0.2s ease;
+    padding: 10px 25px;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    background-color: rgba(0, 0, 0, 0.4); /* タグも少し透かす */
 }
 
-.tag:hover {
-    transform: translateY(-2px); 
-}
-
-.food-tag {
-    background: #fff0f2;
-    color: #ff6b81;
-    border: 1px solid rgba(255,107,129,0.2);
-}
-
-/* --- Contact セクション --- */
-.contact {
-    padding: 28px 40px 60px 40px;
-    margin: 18px 24px 60px 24px; 
-    background: linear-gradient(180deg, #ffffff, #fffafc);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(16,24,40,0.04);
-    text-align: center; 
-}
-
+/* --- Contact --- */
 .contact-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    text-align: center;
+    /* 以前あった背景グラデーションや枠線、パディングは削除しました */
 }
-
 .contact-text {
-    color: #555;
-    line-height: 1.8;
-    font-size: 15px;
-    margin: 0;
+    margin-bottom: 50px;
+    color: var(--text-muted);
 }
-
 .contact-email {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 32px;
-    font-size: 18px;
+    justify-content: center;
+    padding: 18px 50px;
+    background-color: var(--accent-gold);
+    color: var(--bg-base);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
     font-weight: 600;
-    color: #ff6b81; 
-    background: #fff0f2; 
-    border: 2px solid rgba(255,107,129,0.2);
-    border-radius: 999px;
-    text-decoration: none; 
-    transition: all 0.2s ease;
+    letter-spacing: 0.1em;
+    transition: background-color 0.4s ease;
+}
+.contact-email:hover {
+    background-color: var(--accent-gold-hover);
 }
 
-.contact-email:hover {
-    background: #ff6b81;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(255,107,129,0.2);
+/* --- Splash Overlay --- */
+.splash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 2.5s ease-in-out 1.5s forwards;
+}
+.splash-logo {
+    color: var(--accent-gold);
+    font-size: 3.5rem;
+    opacity: 0;
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.05); }
 }
 
 /* --- トップへ戻るボタン --- */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 40px;
+    right: 40px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(90deg, #ff6b81, #ff8fa3);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
+    background: var(--bg-base);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255,107,129,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000; 
+    z-index: 100;
 }
-
 .back-to-top.show {
     opacity: 1;
     visibility: visible;
 }
-
 .back-to-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(255,107,129,0.4);
+    background: var(--accent-gold);
+    color: var(--bg-base);
 }
 
-/* =========================================
-   スマホ向けのレスポンシブ対応（まとめて最後に記述）
-========================================= */
-@media (max-width: 600px) {
-    .icon-row {
-        gap: 6px; 
-        padding: 24px 10px; 
-        align-items: center;
-    }
-    
-    .circle {
-        width: 58px; 
-        height: 58px; 
-    }
-    .circle svg { 
-        width: 22px; 
-        height: 22px; 
-    }
-    .circle-label { 
-        font-size: 10px; 
-    }
-    .circle:focus { 
-        transform: none; 
-        box-shadow: 0 8px 18px rgba(16,24,40,0.04);
-    }
+/* =======================================================
+   スクロールアニメーション (Fade In & Directional)
+   ======================================================= */
+.fade-in-section {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
+}
+.fade-down { transform: translateY(60px); }
+.fade-up { transform: translateY(-60px); }
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
 
-    .about-me {
-        padding: 0 20px 40px 20px;
+/* レスポンシブ対応（スマホ向け） */
+@media (max-width: 768px) {
+    section.fade-in-section {
+        padding: 40px 20px; /* スマホでは枠内の余白を少し狭くする */
     }
-
     .content {
         flex-direction: column;
-        align-items: center;
     }
-
-    .image-box {
-        width: 100%; 
-        max-width: 300px;
+    .header h1 {
+        font-size: 2rem;
     }
-
-    .skills { padding: 20px; }
-    .skill-label { width: 64px; font-size: 14px; }
-
-    .works {
-        padding: 20px; 
-        margin: 18px 0 40px 0; 
-        border-radius: 0; 
+    .circle {
+        width: 70px;
+        height: 70px;
     }
-
-    .works-grid {
-        grid-template-columns: 1fr; /* 🌟 スマホでは1列 */
-        gap: 16px;
-    }
-
-    .life {
-        padding: 20px;
-        margin: 18px 0 40px 0;
-        border-radius: 0;
-    }
-
-    .life-container {
-        flex-direction: column; 
-        gap: 40px;
-    }
-
-    .contact {
-        padding: 30px 20px;
-        margin: 18px 0 60px 0;
-        border-radius: 0;
-    }
-    
-    .contact-email {
-        font-size: 16px;
-        padding: 12px 20px;
-        width: 100%; 
-        max-width: 320px;
-        box-sizing: border-box;
-        justify-content: center;
-    }
-
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 44px; 
-        height: 44px;
+    .gauge-track {
+        width: 100%;
+        display: block;
+        margin: 10px 0;
     }
 }
+
+/* なびく布のアニメーション定義 */
+@keyframes silken-wave-1 { 0% { background-position: 0 0; } 100% { background-position: 1200px 0; } }
+@keyframes silken-wave-2 { 0% { background-position: 0 0; } 100% { background-position: -1800px 0; } }
+@keyframes silken-wave-3 { 0% { background-position: 0 0; } 100% { background-position: 1400px 0; } }
