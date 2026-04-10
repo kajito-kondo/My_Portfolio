@@ -495,36 +495,46 @@ section.fade-in-section::after {
     }
 }
 
-/* ボタンを確実に最前面に配置し、タップを検知しやすくする */
-.work-button {
+/* =======================================================
+   スマホでのタップ・クリック問題の全体修正（決定版）
+   ======================================================= */
+
+/* 1. 透明になったローディング画面がタップを邪魔するバグを防ぐ（超重要） */
+.splash-overlay {
+    pointer-events: none !important;
+}
+
+/* 2. すべてのボタンのタップ判定を最前面に出す */
+.circle, .work-button, .contact-email, .back-to-top {
     position: relative;
-    z-index: 10; 
+    z-index: 10;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+/* 3. スマホ画面ではホバー（マウスを乗せる動作）を無効化し、1発でタップできるようにする */
 @media (max-width: 768px) {
-    /* スマホではホバーによる浮き上がりを無効化し、1回のタップでリンクが開くようにする */
-    .work-card:hover {
-        transform: none;
-        border-color: var(--border-color);
+    /* ホバーによる動きや色の変化を強制リセット */
+    .circle:hover, 
+    .work-card:hover, 
+    .work-button:hover, 
+    .contact-email:hover, 
+    .back-to-top:hover {
+        transform: none !important;
     }
     
-    /* スマホでは画像を最初からカラーで表示させる */
+    /* スマホでは作品画像を最初からカラーで表示させる */
     .work-image img {
-        filter: grayscale(0%) contrast(100%);
+        filter: grayscale(0%) contrast(100%) !important;
     }
-    .work-card:hover .work-image img {
-        filter: grayscale(0%) contrast(100%);
-    }
-    
-    /* ボタンを押しやすいように少し大きく、横幅を広げる */
+
+    /* 指で押しやすいようにVIEW PROJECTボタンを大きくする */
     .work-button {
-        padding: 16px 20px;
-        display: block;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 0.9rem;
-        font-weight: 600;
-        box-sizing: border-box;
+        padding: 16px 20px !important;
+        display: block !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        box-sizing: border-box !important;
     }
 }
