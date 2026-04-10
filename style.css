@@ -494,3 +494,37 @@ section.fade-in-section::after {
         font-size: 1.5rem;
     }
 }
+
+/* ボタンを確実に最前面に配置し、タップを検知しやすくする */
+.work-button {
+    position: relative;
+    z-index: 10; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@media (max-width: 768px) {
+    /* スマホではホバーによる浮き上がりを無効化し、1回のタップでリンクが開くようにする */
+    .work-card:hover {
+        transform: none;
+        border-color: var(--border-color);
+    }
+    
+    /* スマホでは画像を最初からカラーで表示させる */
+    .work-image img {
+        filter: grayscale(0%) contrast(100%);
+    }
+    .work-card:hover .work-image img {
+        filter: grayscale(0%) contrast(100%);
+    }
+    
+    /* ボタンを押しやすいように少し大きく、横幅を広げる */
+    .work-button {
+        padding: 16px 20px;
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-sizing: border-box;
+    }
+}
