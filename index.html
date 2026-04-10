@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Premium Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <title>Portfolio - Cyber Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="splash-overlay" id="splash-overlay">
-        <h1 class="splash-logo">kajito room</h1>
+        <h1 class="splash-logo">SYSTEM INITIALIZING...<br><span style="font-size: 0.5em; color: var(--accent-blue);">kajito_room v2.0</span></h1>
     </div>
 
     <div class="container">
         <header class="header">
-            <h1>kajito room</h1>
+            <h1>KAJITO_ROOM</h1>
+            <p class="sys-text">USER: KAJITO KONDOU // STATUS: ONLINE</p>
         </header>
 
         <div class="icon-row">
@@ -42,6 +43,13 @@
                 <span class="circle-label">WORKS</span>
             </button>
 
+            <button class="circle" aria-label="Demo Works">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M9 6.5l8 5.5-8 5.5v-11z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter"/>
+                </svg>
+                <span class="circle-label">DEMO</span>
+            </button>
+
             <button class="circle" aria-label="Life">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M3 7h18" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
@@ -63,7 +71,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="content">
                 <div class="image-box">
-                    [ Your Photo Here ]
+                    <img src="my.png" alt="kajito kondou" style="width: 100%; height: auto; display: block; filter: grayscale(80%) contrast(120%); transition: filter 0.5s ease;">
                 </div>
                 <div class="text-box">
                     <ul class="about-info">
@@ -133,6 +141,18 @@
                 </div>
                 <span class="skill-value">63</span>
             </div>
+
+            <div class="additional-skills" style="margin-top: 50px; border-top: 1px solid var(--border-color); padding-top: 40px;">
+                <h3 class="life-subtitle" style="font-size: 1rem; margin-bottom: 25px;">ADDITIONAL SKILLS</h3>
+                <div class="tags">
+                    <span class="tag">Webデザイン</span>
+                    <span class="tag">LPデザイン</span>
+                    <span class="tag">Web開発</span>
+                    <span class="tag">システム開発</span>
+                    <span class="tag">アプリケーション開発</span>
+                    <span class="tag">UI/UX設計</span>
+                </div>
+            </div>
         </section>
 
         <section class="works fade-in-section">
@@ -156,26 +176,48 @@
 
                 <div class="work-card">
                     <div class="work-image">
-                        <img src="https://placehold.co/300x200/111111/cba153?text=Work+02" alt="作品サムネイル2">
+                        <img src="work2.png" alt="ユーザーマイページデザイン">
                     </div>
                     <div class="work-content">
-                        <h3 class="work-title">作品タイトル B</h3>
-                        <p class="work-description">サイトのデザインに合わせてシンプルでクリーンなカードデザインにしました。</p>
-                        <a href="#" class="work-button">VIEW PROJECT</a>
+                        <h3 class="work-title">ユーザーマイページデザイン</h3>
+                        <p class="work-description">
+                            ユーザーの利便性を重視したマイページのUIデザインです。Figmaを使用してプロトタイプを作成しました。
+                        </p>
+                        <a href="https://www.figma.com/make/hcdAaa1VTpSrLnPPONu69F/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%9E%E3%82%A4%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?fullscreen=1&t=awtA7NjLxG9l10Kc-1" target="_blank" rel="noopener noreferrer" class="work-button">
+                            VIEW PROJECT
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="demo-works fade-in-section">
+            <h2 class="section-title">Demo Works</h2>
+            <div class="works-grid">
+                
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="demo1.png" alt="Cherir LPデモ">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">Cherir LPデモ</h3>
+                        <p class="work-description">「かわいい」バスタイムをテーマにしたヘアケア商品のデモ用LPです。</p>
+                        <a href="https://lucent-snickerdoodle-d2dc1f.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-button">VIEW DEMO</a>
                     </div>
                 </div>
 
                 <div class="work-card">
                     <div class="work-image">
-                        <img src="https://placehold.co/300x200/111111/cba153?text=Work+03" alt="作品サムネイル3">
+                        <img src="demo2.png" alt="架空の化粧品LP LUMIÈRE">
                     </div>
                     <div class="work-content">
-                        <h3 class="work-title">作品タイトル C</h3>
-                        <p class="work-description">ホバー時の挙動も高級感を持たせるために調整されています。</p>
-                        <a href="#" class="work-button">VIEW PROJECT</a>
+                        <h3 class="work-title">架空の化粧品LP</h3>
+                        <p class="work-description">Figmaで制作した、架空の化粧品ブランドのランディングページプロトタイプです。</p>
+                        <a href="https://www.figma.com/proto/nyEVajbWv4hQe2mXNrSDuq/%E6%9E%B6%E7%A9%BA%E3%81%AE%E5%8C%96%E7%B2%A7%E5%93%81LP?team_id=1443785719234267327&node-id=1-2&page-id=0%3A1&t=oqjMbmDF3KAZL6x1-1" target="_blank" rel="noopener noreferrer" class="work-button">VIEW DEMO</a>
                     </div>
                 </div>
-                
+
             </div>
         </section>
 
@@ -230,7 +272,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
                         <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
                     </svg>
-                    CONTACT FORM
+                    CONNECT TO SECURE FORM
                 </a>
             </div>
         </section>
